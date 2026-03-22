@@ -2408,3 +2408,8 @@ section { padding: 7rem 0; }
     align-items: center;
     justify-content: center;
 }
+.logo-img {
+    width: 40px;   /* size control */
+    height: 40px;
+    object-fit: contain;
+}
