@@ -690,6 +690,7 @@ body:has(button:hover) .cursor-follower {
     display: flex;
     justify-content: center;
     padding-top: 6px;
+}
 
 .scroll-dot {
     width: 4px;
