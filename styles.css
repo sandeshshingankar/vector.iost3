@@ -2404,3 +2404,12 @@ section { padding: 7rem 0; }
     .cta-actions { flex-direction: column; align-items: stretch; }
     .cta-actions .btn { justify-content: center; }
 }
+.logo-mark {
+    width: 60px;
+    height: 60px;
+    background: #0a0a0a;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
