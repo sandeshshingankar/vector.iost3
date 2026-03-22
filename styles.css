@@ -690,12 +690,7 @@ body:has(button:hover) .cursor-follower {
     display: flex;
     justify-content: center;
     padding-top: 6px;
-}
-.logo-img {
-    width: 40px;   /* size control */
-    height: 40px;
-    object-fit: contain;
-}
+
 .scroll-dot {
     width: 4px;
     height: 8px;
