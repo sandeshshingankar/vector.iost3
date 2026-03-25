@@ -187,7 +187,7 @@
                 <p class="section-subtitle">A complete team designed to turn your ideas into reality — fast, beautiful, and reliable.</p>
             </div>
             <div class="features-grid">
-                <div class="feature-card" data-delay="0">
+                <div class="feature-card" data-delay="0" data-service="websites">
                     <div class="feature-icon-wrap">
                         <div class="feature-icon">💻</div>
                         <div class="icon-glow"></div>
@@ -196,7 +196,7 @@
                     <p>Modern, responsive designs with stunning animations, glassmorphism effects, and micro-interactions that delight users.</p>
                     <div class="feature-arrow">→</div>
                 </div>
-                <div class="feature-card" data-delay="100">
+                <div class="feature-card" data-delay="100" data-service="online-services">
                     <div class="feature-icon-wrap">
                         <div class="feature-icon">⚡</div>
                         <div class="icon-glow yellow"></div>
@@ -205,7 +205,7 @@
                     <p>Sub-second load times with edge caching, optimized bundles, and a 99.99% uptime infrastructure built to scale.</p>
                     <div class="feature-arrow">→</div>
                 </div>
-                <div class="feature-card" data-delay="200">
+                <div class="feature-card" data-delay="200" data-service="offline-services">
                     <div class="feature-icon-wrap">
                         <div class="feature-icon">🔐</div>
                         <div class="icon-glow green"></div>
@@ -214,7 +214,7 @@
                     <p>We offer professional offline solutions such as on-site work</p>
                     <div class="feature-arrow">→</div>
                 </div>
-                <div class="feature-card" data-delay="300">
+                <div class="feature-card" data-delay="300" data-service="apps">
                     <div class="feature-icon-wrap">
                         <div class="feature-icon">📱</div>
                         <div class="icon-glow pink"></div>
@@ -223,7 +223,7 @@
                     <p>Fully adaptive layouts built for every screen, from wristwatch to ultrawide. Every interaction feels native everywhere.</p>
                     <div class="feature-arrow">→</div>
                 </div>
-                <div class="feature-card" data-delay="400">
+                <div class="feature-card" data-delay="400" data-service="products">
                     <div class="feature-icon-wrap">
                         <div class="feature-icon">🤖</div>
                         <div class="icon-glow purple"></div>
@@ -232,7 +232,7 @@
                     <p>We create innovative software, tools, and digital solutions to improve productivity and user experience.</p>
                     <div class="feature-arrow">→</div>
                 </div>
-                <div class="feature-card" data-delay="500">
+                <div class="feature-card" data-delay="500" data-service="digital-marketing">
                     <div class="feature-icon-wrap">
                         <div class="feature-icon">🔗</div>
                         <div class="icon-glow cyan"></div>
@@ -817,6 +817,53 @@
 
     <!-- Back to Top Button -->
     <button class="back-to-top" id="backToTop" onclick="scrollToSection('home')">↑</button>
+
+    <!-- ========== SERVICE MODAL OVERLAY ========== -->
+    <div class="service-overlay" id="serviceOverlay">
+        <div class="service-panel">
+            <!-- Panel Header -->
+            <div class="service-panel-header">
+                <div class="service-panel-title-wrap">
+                    <span class="service-panel-icon" id="servicePanelIcon"></span>
+                    <div>
+                        <h2 class="service-panel-title" id="servicePanelTitle"></h2>
+                        <p class="service-panel-desc" id="servicePanelDesc"></p>
+                    </div>
+                </div>
+                <button class="service-panel-close" id="servicePanelClose" aria-label="Close">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+            </div>
+
+            <!-- Panel Body -->
+            <div class="service-panel-body" id="servicePanelBody">
+                <!-- Content injected by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- iframe Lightbox (for clicking a website card) -->
+    <div class="iframe-lightbox" id="iframeLightbox">
+        <div class="iframe-lightbox-inner">
+            <div class="iframe-lightbox-topbar">
+                <div class="iframe-url-bar" id="iframeUrlBar"></div>
+                <div class="iframe-lb-actions">
+                    <a class="iframe-open-btn" id="iframeOpenBtn" target="_blank" rel="noopener noreferrer">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        Open
+                    </a>
+                    <button class="iframe-lb-close" id="iframeLbClose">✕</button>
+                </div>
+            </div>
+            <div class="iframe-wrapper">
+                <iframe id="serviceIframe" src="" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                <div class="iframe-loading" id="iframeLoading">
+                    <div class="iframe-spinner"></div>
+                    <span>Loading...</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
