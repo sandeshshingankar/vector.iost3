@@ -534,7 +534,18 @@ printStyle.textContent = `
 document.head.appendChild(printStyle);
 
 // ==================== INIT ====================
-console.log('%cBuildHub ⚡', 'font-size:24px; font-weight:800; color:#6366f1;');
+// Always start at the top (home section) on page load/refresh
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+window.addEventListener('load', () => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    if (window.location.hash) {
+        history.replaceState(null, '', window.location.pathname);
+    }
+});
+
+console.log('%cVector.ioST ⚡', 'font-size:24px; font-weight:800; color:#6366f1;');
 console.log('%cBuilt with passion. Running smoothly.', 'color:#8b92b3;');
 
 // ==================== SERVICE MODAL ====================
