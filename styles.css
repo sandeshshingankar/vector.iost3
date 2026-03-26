@@ -7310,3 +7310,19 @@ section { padding: 7rem 0; }
     .event-iframe-body { height: 220px; }
     .nav-logo-img { height: 44px; }
 }
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* logo ani text madhye space */
+    cursor: pointer;
+}
+
+.nav-logo-img {
+    height: 40px; /* size adjust karu shakto */
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: 600;
+    color: #000; /* tujha theme nusar change kar */
+}
