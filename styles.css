@@ -7141,7 +7141,7 @@ section { padding: 7rem 0; }
 
 /* ==================== NAV & FOOTER LOGO IMAGE ==================== */
 .nav-logo-img {
-    height: 38px;
+    height: 54px;
     width: auto;
     object-fit: contain;
     display: block;
@@ -7308,5 +7308,5 @@ section { padding: 7rem 0; }
 @media (max-width: 600px) {
     .event-info { flex-direction: column; gap: 0.75rem; }
     .event-iframe-body { height: 220px; }
-    .nav-logo-img { height: 30px; }
+    .nav-logo-img { height: 44px; }
 }
