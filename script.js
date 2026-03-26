@@ -568,28 +568,28 @@ const SERVICE_DATA = {
         type: 'websites',
         items: [
             {
-                name: 'Vector.ioST Main',
-                url: 'https://example.com',          // 🔁 Replace with your URL
+                name: 'GFM Management System for NMIET',
+                url: 'https://sandeshshingankar.github.io/GFM-Demo/',          // 🔁 Replace with your URL
                 badge: 'Live',
-                desc: 'Our flagship startup website'
+                desc: 'Management System for NMIET'
             },
             {
-                name: 'Client Portfolio A',
-                url: 'https://example.org',           // 🔁 Replace with your URL
+                name: 'Hackathon website for NMIET',
+                url: 'https://sandeshshingankar.github.io/nmiet-/',           // 🔁 Replace with your URL
                 badge: 'Live',
-                desc: 'E-commerce redesign project'
+                desc: 'Hackathon website'
             },
             {
-                name: 'SaaS Dashboard',
-                url: 'https://wikipedia.org',         // 🔁 Replace with your URL
+                name: 'startup website for BuildHub',
+                url: 'https://sandeshshingankar.github.io/vector.iost2/',         // 🔁 Replace with your URL
                 badge: 'Live',
-                desc: 'Analytics & reporting platform'
+                desc: 'startup website'
             },
             {
-                name: 'Agency Landing Page',
-                url: 'https://mozilla.org',           // 🔁 Replace with your URL
-                badge: 'Beta',
-                desc: 'Modern agency portfolio site'
+                name: 'DISTRACTION FREE YOUTUBE for Student',
+                url: 'https://sandeshshingankar.github.io/youtube/',           // 🔁 Replace with your URL
+                badge: 'Live',
+                desc: 'YOUTUBE for Student'
             },
         ]
     },
@@ -599,7 +599,7 @@ const SERVICE_DATA = {
         desc: 'Fast, scalable digital services available around the clock.',
         type: 'items',
         items: [
-            { icon: '🌐', title: 'Web Hosting', desc: '99.99% uptime, edge CDN, SSL included. Deploy your site in minutes.', tags: ['CDN', 'SSL', 'Fast'] },
+            { icon: '🌐', title: 'Web Hosting', desc: '99.99% uptime, edge CDN, SSL included. Deploy your site in minutes.', tags: ['CDN', 'SSL', 'Fast'],title: 'Web Hosting' },
             { icon: '🤖', title: 'AI Automation', desc: 'Automate repetitive tasks with intelligent workflows and AI pipelines.', tags: ['GPT', 'No-code', 'Zapier-like'] },
             { icon: '📧', title: 'Email Campaigns', desc: 'Design, send, and track beautiful email campaigns that convert.', tags: ['Bulk Email', 'Analytics'] },
             { icon: '🔒', title: 'Security Audits', desc: 'Comprehensive vulnerability scans and security hardening for your web apps.', tags: ['VAPT', 'Compliance'] },
