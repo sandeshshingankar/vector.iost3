@@ -599,13 +599,18 @@ const SERVICE_DATA = {
         desc: 'Fast, scalable digital services available around the clock.',
         type: 'items',
         items: [
-            { icon: '🌐', title: 'Web Hosting', desc: '99.99% uptime, edge CDN, SSL included. Deploy your site in minutes.', tags: ['CDN', 'SSL', 'Fast'] },
-            { icon: '🤖', title: 'AI Automation', desc: 'Automate repetitive tasks with intelligent workflows and AI pipelines.', tags: ['GPT', 'No-code', 'Zapier-like'] },
-            { icon: '📧', title: 'Email Campaigns', desc: 'Design, send, and track beautiful email campaigns that convert.', tags: ['Bulk Email', 'Analytics'] },
-            { icon: '🔒', title: 'Security Audits', desc: 'Comprehensive vulnerability scans and security hardening for your web apps.', tags: ['VAPT', 'Compliance'] },
-            { icon: '📊', title: 'Analytics Dashboard', desc: 'Real-time insights into your users, traffic, and conversion funnels.', tags: ['Real-time', 'Charts'] },
-            { icon: '☁️', title: 'Cloud Storage', desc: 'Secure, scalable cloud file storage with easy API integration.', tags: ['S3-compatible', 'Encrypted'] },
-        ]
+            { icon: '🌐', title: 'Web Hosting', desc: '99.99% uptime, edge CDN, SSL included. Deploy your site in minutes.', tags: ['CDN', 'SSL', 'Fast'], price: '₹4,999/year' },
+
+            { icon: '🤖', title: 'AI Automation', desc: 'Automate repetitive tasks with intelligent workflows and AI pipelines.', tags: ['GPT', 'No-code', 'Zapier-like'], price: '₹9,999/project' },
+
+            { icon: '📧', title: 'Email Campaigns', desc: 'Design, send, and track beautiful email campaigns that convert.', tags: ['Bulk Email', 'Analytics'], price: '₹2,999/month' },
+
+            { icon: '🔒', title: 'Security Audits', desc: 'Comprehensive vulnerability scans and security hardening for your web apps.', tags: ['VAPT', 'Compliance'], price: '₹7,999/audit' },
+
+            { icon: '📊', title: 'Analytics Dashboard', desc: 'Real-time insights into your users, traffic, and conversion funnels.', tags: ['Real-time', 'Charts'], price: '₹5,999/project' },
+
+            { icon: '☁️', title: 'Cloud Storage', desc: 'Secure, scalable cloud file storage with easy API integration.', tags: ['S3-compatible', 'Encrypted'], price: '₹1,999/month' },
+            ]
     },
     'offline-services': {
         icon: '🔐',
