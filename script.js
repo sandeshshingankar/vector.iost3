@@ -164,7 +164,7 @@ const revealObserver = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-document.querySelectorAll('.feature-card, .app-card, .pricing-card, .step-item, .founder-card').forEach(el => {
+document.querySelectorAll('.feature-card, .app-card, .pricing-card, .step-item, .founder-card, .event-row').forEach(el => {
     revealObserver.observe(el);
 });
 
