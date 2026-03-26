@@ -3346,67 +3346,71 @@ section { padding: 7rem 0; }
 /* ---- Website card grid (iframe previews) ---- */
 .website-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1.2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.8rem;
 }
 .website-card {
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
     cursor: pointer;
     transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     position: relative;
 }
 .website-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(99,102,241,0.45);
-    box-shadow: 0 12px 36px rgba(99,102,241,0.18);
+    transform: translateY(-5px);
+    border-color: rgba(99,102,241,0.5);
+    box-shadow: 0 20px 50px rgba(99,102,241,0.2);
 }
 .website-card-preview {
-    height: 170px;
+    height: 340px;
     overflow: hidden;
     position: relative;
-    background: #0a0a1a;
+    background: #f0f0f0;
     pointer-events: none;
 }
 .website-card-preview iframe {
-    width: 100%;
-    height: 100%;
+    width: 160%;
+    height: 160%;
     border: none;
+    transform: scale(0.625);
     transform-origin: top left;
     pointer-events: none;
 }
 .website-card-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, transparent 50%, rgba(8,8,20,0.8) 100%);
+    background: linear-gradient(to bottom, transparent 60%, rgba(8,8,20,0.85) 100%);
     z-index: 1;
 }
 .website-card-footer {
-    padding: 0.9rem 1rem;
+    padding: 1.1rem 1.3rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 0.5rem;
+    gap: 0.7rem;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
 }
 .website-card-name {
     font-weight: 600;
-    font-size: 0.9rem;
-    color: var(--text-primary, #fff);
+    font-size: 1rem;
+    color: var(--text);
 }
 .website-card-url {
-    font-size: 0.75rem;
-    color: var(--text-muted, #8b92b3);
+    font-size: 0.8rem;
+    color: var(--text-muted);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 140px;
+    max-width: 200px;
+    margin-top: 0.15rem;
 }
 .website-card-badge {
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     font-weight: 600;
-    padding: 3px 8px;
+    padding: 4px 10px;
     border-radius: 20px;
     background: rgba(99,102,241,0.15);
     color: #818cf8;
@@ -3415,6 +3419,12 @@ section { padding: 7rem 0; }
     flex-shrink: 0;
 }
 .website-card-badge.live { background: rgba(16,185,129,0.12); color: #34d399; border-color: rgba(16,185,129,0.3); }
+
+@media (max-width: 640px) {
+    .website-grid { grid-template-columns: 1fr; }
+    .website-card-preview { height: 240px; }
+    .website-card-preview iframe { width: 150%; height: 150%; transform: scale(0.667); }
+}
 
 /* ---- Generic service items grid ---- */
 .service-items-grid {
@@ -6835,4 +6845,296 @@ section { padding: 7rem 0; }
     .founder-top { flex-direction: column; align-items: center; text-align: center; }
     .founder-social { justify-content: center; }
     .founder-tags { justify-content: center; }
+}
+
+/* ==================== EVENT WEBSITE BUTTON ==================== */
+.event-website-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.2rem;
+    padding: 0.55rem 1.1rem;
+    border: 1.5px solid var(--primary);
+    border-radius: 50px;
+    color: var(--primary-light);
+    font-size: 0.85rem;
+    font-family: var(--font-body);
+    font-weight: 500;
+    text-decoration: none;
+    background: rgba(99,102,241,0.08);
+    transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.18s;
+    cursor: pointer;
+}
+.event-website-btn:hover {
+    background: rgba(99,102,241,0.18);
+    color: #fff;
+    border-color: var(--primary-light);
+    transform: translateY(-2px);
+}
+.event-website-btn svg {
+    flex-shrink: 0;
+    opacity: 0.85;
+}
+
+/* ==================== CAREER CARD POINTER ==================== */
+.career-card {
+    cursor: pointer;
+    transition: transform 0.22s, box-shadow 0.22s !important;
+}
+.career-card:hover {
+    transform: translateY(-6px) scale(1.01) !important;
+    box-shadow: 0 20px 50px rgba(99,102,241,0.18) !important;
+}
+
+/* ==================== CAREER MODAL ==================== */
+.career-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(7,8,15,0.82);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 5000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+.career-modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+.career-modal-panel {
+    background: var(--surface);
+    border: 1px solid var(--border2);
+    border-radius: var(--radius-lg);
+    width: 100%;
+    max-width: 680px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: var(--shadow-lg), 0 0 60px rgba(99,102,241,0.15);
+    transform: scale(0.94) translateY(20px);
+    transition: transform 0.3s cubic-bezier(.34,1.56,.64,1);
+    scrollbar-width: thin;
+    scrollbar-color: var(--border2) transparent;
+}
+.career-modal-overlay.active .career-modal-panel {
+    transform: scale(1) translateY(0);
+}
+.career-modal-close {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.2s, color 0.2s;
+}
+.career-modal-close:hover {
+    background: rgba(244,114,182,0.15);
+    color: var(--accent);
+}
+
+/* --- Modal Header --- */
+.cm-header {
+    padding: 2rem 2rem 1.5rem;
+    background: linear-gradient(135deg, rgba(99,102,241,0.06) 0%, transparent 60%);
+    border-bottom: 1px solid var(--border);
+}
+.cm-category-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.8rem;
+}
+.cm-category-icon { font-size: 1.2rem; }
+.cm-category-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cm-color, var(--primary));
+}
+.cm-job-counter {
+    margin-left: auto;
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    background: var(--surface2);
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+}
+.cm-job-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 3vw, 1.9rem);
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+.cm-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+.cm-meta-pill {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 0.3rem 0.7rem;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+.cm-salary {
+    color: var(--green);
+    border-color: rgba(16,185,129,0.3);
+    background: rgba(16,185,129,0.07);
+}
+
+/* --- Modal Content --- */
+.cm-content {
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.cm-section-title {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 0.7rem;
+}
+.cm-about-text {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+.cm-skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+.cm-skill-tag {
+    font-size: 0.82rem;
+    font-weight: 500;
+    padding: 0.35rem 0.8rem;
+    border-radius: 8px;
+    background: rgba(99,102,241,0.1);
+    border: 1px solid rgba(99,102,241,0.25);
+    color: var(--primary-light);
+}
+.cm-resp-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+.cm-resp-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+.cm-resp-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    margin-top: 0.45rem;
+    flex-shrink: 0;
+}
+.cm-perks-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+.cm-perk-badge {
+    font-size: 0.82rem;
+    padding: 0.35rem 0.8rem;
+    border-radius: 8px;
+    background: rgba(16,185,129,0.08);
+    border: 1px solid rgba(16,185,129,0.2);
+    color: var(--green);
+}
+
+/* --- Modal Footer --- */
+.cm-footer {
+    padding: 1.2rem 2rem 1.8rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: center;
+}
+.cm-nav-btns {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    justify-content: center;
+}
+.cm-nav-btn {
+    background: var(--surface2);
+    border: 1px solid var(--border2);
+    color: var(--text-muted);
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.cm-nav-btn:hover:not(:disabled) {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+.cm-nav-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+.cm-nav-dots {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+}
+.cm-nav-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border2);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+.cm-nav-dot.active {
+    background: var(--primary);
+    transform: scale(1.3);
+}
+.cm-apply-btn {
+    width: 100%;
+    max-width: 340px;
+    justify-content: center;
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+}
+
+@media (max-width: 520px) {
+    .cm-header, .cm-content, .cm-footer { padding-left: 1.2rem; padding-right: 1.2rem; }
+    .cm-job-title { font-size: 1.3rem; }
+    .career-modal-panel { border-radius: var(--radius); }
 }
