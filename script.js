@@ -768,5 +768,495 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeIframeLightbox();
         closeServicePanel();
+        closeCareerModal();
     }
+});
+
+// ==================== CAREERS MODAL ====================
+const CAREER_DATA = {
+    tech: {
+        icon: '🏗️',
+        category: 'Tech Role',
+        color: '#6366f1',
+        roles: [
+            {
+                title: 'Full Stack Developer',
+                type: 'Full-Time · Remote',
+                location: 'Pune, India / Remote',
+                experience: '1–3 Years',
+                salary: '₹4L – ₹10L / year',
+                about: 'We are looking for a talented Full Stack Developer to join our growing team at Vector.ioST. You will be responsible for designing and developing web applications, working across the entire stack from frontend to backend, and collaborating with designers and product managers to ship great products.',
+                skills: ['React / Next.js', 'Node.js / Express', 'PostgreSQL / MongoDB', 'REST APIs', 'Git & CI/CD', 'TypeScript'],
+                responsibilities: [
+                    'Build and maintain scalable web applications end-to-end',
+                    'Collaborate with the design team to implement pixel-perfect UIs',
+                    'Write clean, well-documented, and tested code',
+                    'Participate in code reviews and technical architecture discussions',
+                    'Optimize applications for maximum speed and scalability'
+                ],
+                perks: ['Remote-first culture', 'Flexible hours', 'Learning budget', 'Equity options', 'Health insurance']
+            },
+            {
+                title: 'DevOps / Cloud Engineer',
+                type: 'Full-Time · Hybrid',
+                location: 'Pune, India',
+                experience: '2–4 Years',
+                salary: '₹6L – ₹14L / year',
+                about: 'We are scaling our infrastructure and need a DevOps/Cloud Engineer to help us build reliable, scalable, and secure cloud environments. You will own CI/CD pipelines, cloud architecture, and ensure our services run with 99.99% uptime.',
+                skills: ['AWS / GCP', 'Docker & Kubernetes', 'Terraform', 'Linux', 'GitHub Actions', 'Monitoring (Grafana/Datadog)'],
+                responsibilities: [
+                    'Design and manage cloud infrastructure on AWS/GCP',
+                    'Build and maintain CI/CD pipelines for rapid deployment',
+                    'Monitor system health and respond to incidents',
+                    'Implement security best practices and compliance',
+                    'Collaborate with developers on deployment strategies'
+                ],
+                perks: ['Remote-first culture', 'AWS certification support', 'Equity options', 'Health insurance', 'Conference budget']
+            },
+            {
+                title: 'Mobile App Developer',
+                type: 'Full-Time · Remote',
+                location: 'Remote',
+                experience: '1–3 Years',
+                salary: '₹4L – ₹10L / year',
+                about: 'Join our mobile team and build beautiful, high-performance apps for iOS and Android. You will work on our consumer-facing products and internal tools, crafting experiences that delight users.',
+                skills: ['React Native / Flutter', 'iOS (Swift)', 'Android (Kotlin)', 'REST API Integration', 'App Store / Play Store', 'Firebase'],
+                responsibilities: [
+                    'Develop and maintain cross-platform mobile applications',
+                    'Integrate with backend APIs and third-party services',
+                    'Ensure performance and quality of the application',
+                    'Collaborate with UX designers on user interface design',
+                    'Publish and maintain apps on App Store and Play Store'
+                ],
+                perks: ['Remote-first culture', 'Flexible hours', 'Device allowance', 'Learning budget', 'Health insurance']
+            },
+            {
+                title: 'Product Developer / Software Engineer',
+                type: 'Full-Time · Hybrid',
+                location: 'Pune, India',
+                experience: '0–2 Years',
+                salary: '₹3L – ₹7L / year',
+                about: 'An exciting opportunity for a driven Software Engineer to work on our SaaS products. You will work closely with founders and the product team, shipping features fast and iterating based on user feedback.',
+                skills: ['JavaScript / TypeScript', 'Python', 'React', 'REST / GraphQL', 'SQL', 'Problem Solving'],
+                responsibilities: [
+                    'Build new product features from concept to production',
+                    'Fix bugs and improve system performance',
+                    'Work closely with product team on specifications',
+                    'Write unit and integration tests',
+                    'Contribute to technical roadmap discussions'
+                ],
+                perks: ['Fast career growth', 'Startup equity', 'Flexible hours', 'Mentorship', 'Health insurance']
+            },
+            {
+                title: 'Backend Developer',
+                type: 'Full-Time · Remote',
+                location: 'Remote / Pune',
+                experience: '1–3 Years',
+                salary: '₹4L – ₹9L / year',
+                about: 'We need a strong Backend Developer to build the APIs and services that power our platform. You will design robust, scalable systems and work with databases, microservices, and third-party integrations.',
+                skills: ['Node.js / Python / Go', 'REST & GraphQL APIs', 'PostgreSQL / Redis', 'Microservices', 'Docker', 'Auth & Security'],
+                responsibilities: [
+                    'Design and build RESTful and GraphQL APIs',
+                    'Manage and optimize database schemas and queries',
+                    'Build microservices and integrate third-party APIs',
+                    'Ensure API security, rate limiting, and reliability',
+                    'Write technical documentation'
+                ],
+                perks: ['Remote-first culture', 'Equity options', 'Learning budget', 'Health insurance', 'Flexible hours']
+            }
+        ]
+    },
+    ai: {
+        icon: '🤖',
+        category: 'AI Roles',
+        color: '#f472b6',
+        roles: [
+            {
+                title: 'ML Engineer',
+                type: 'Full-Time · Remote',
+                location: 'Remote',
+                experience: '2–4 Years',
+                salary: '₹8L – ₹18L / year',
+                about: 'Join our AI team to build, train, and deploy machine learning models that power intelligent features across our platform. You will work on recommendation systems, predictive analytics, and intelligent automation.',
+                skills: ['Python', 'PyTorch / TensorFlow', 'Scikit-learn', 'MLOps / MLflow', 'Feature Engineering', 'Model Deployment'],
+                responsibilities: [
+                    'Design, train, and deploy ML models at scale',
+                    'Build data pipelines for model training and inference',
+                    'Collaborate with product teams to integrate AI features',
+                    'Monitor model performance and retrain as needed',
+                    'Research and implement state-of-the-art ML techniques'
+                ],
+                perks: ['Remote-first', 'Research budget', 'Equity options', 'Health insurance', 'Conference access']
+            },
+            {
+                title: 'AI Engineer',
+                type: 'Full-Time · Remote',
+                location: 'Remote',
+                experience: '1–3 Years',
+                salary: '₹6L – ₹15L / year',
+                about: 'We are building AI-powered features into every part of our platform. As an AI Engineer, you will integrate LLMs, build AI pipelines, and ship production-grade AI features that wow our users.',
+                skills: ['LLM APIs (OpenAI, Anthropic)', 'LangChain / LlamaIndex', 'Python', 'Prompt Engineering', 'Vector DBs', 'FastAPI'],
+                responsibilities: [
+                    'Build and integrate LLM-powered features into products',
+                    'Design prompt engineering pipelines and RAG systems',
+                    'Evaluate AI output quality and iterate',
+                    'Work with product teams to define AI use cases',
+                    'Ensure AI systems are reliable and cost-efficient'
+                ],
+                perks: ['Remote-first', 'AI tool credits', 'Equity options', 'Health insurance', 'Learning budget']
+            },
+            {
+                title: 'NLP Engineer',
+                type: 'Full-Time · Remote',
+                location: 'Remote',
+                experience: '2–4 Years',
+                salary: '₹8L – ₹16L / year',
+                about: 'We are looking for an NLP Engineer to develop language understanding and generation systems for our AI products, including text classification, entity extraction, and conversational AI.',
+                skills: ['Python', 'HuggingFace Transformers', 'spaCy / NLTK', 'BERT / GPT fine-tuning', 'Text Classification', 'Semantic Search'],
+                responsibilities: [
+                    'Build NLP models for text classification, NER, and summarization',
+                    'Fine-tune pre-trained language models on domain data',
+                    'Design semantic search and retrieval systems',
+                    'Evaluate and benchmark NLP performance',
+                    'Collaborate with ML and product teams'
+                ],
+                perks: ['Remote-first', 'Research access', 'Equity options', 'Health insurance', 'GPU credits']
+            },
+            {
+                title: 'Data Scientist',
+                type: 'Full-Time · Hybrid',
+                location: 'Pune, India / Remote',
+                experience: '1–3 Years',
+                salary: '₹5L – ₹12L / year',
+                about: 'We have rich data and need a Data Scientist to turn it into insights and intelligent features. You will work on user behavior analysis, churn prediction, growth analytics, and A/B testing.',
+                skills: ['Python / R', 'Pandas / NumPy', 'SQL', 'Data Visualization', 'Statistical Modeling', 'A/B Testing'],
+                responsibilities: [
+                    'Analyze large datasets to uncover actionable insights',
+                    'Build predictive models for business metrics',
+                    'Design and analyze A/B experiments',
+                    'Create dashboards and data visualizations',
+                    'Partner with product and engineering on data-driven decisions'
+                ],
+                perks: ['Hybrid work', 'Data tool access', 'Equity options', 'Health insurance', 'Learning budget']
+            },
+            {
+                title: 'LLM Engineer',
+                type: 'Full-Time · Remote',
+                location: 'Remote',
+                experience: '1–3 Years',
+                salary: '₹7L – ₹16L / year',
+                about: 'As an LLM Engineer at Vector.ioST, you will work exclusively with large language models — fine-tuning, evaluating, and deploying them to power our AI Studio and other intelligent products.',
+                skills: ['Python', 'LLM Fine-tuning (LoRA / QLoRA)', 'RLHF', 'Evaluation Frameworks', 'Hugging Face', 'Model Serving (vLLM)'],
+                responsibilities: [
+                    'Fine-tune and adapt LLMs for specific tasks',
+                    'Build evaluation harnesses to measure LLM quality',
+                    'Implement RLHF / DPO pipelines',
+                    'Optimize model inference for production',
+                    'Stay up to date with latest LLM research'
+                ],
+                perks: ['Remote-first', 'GPU compute budget', 'Equity options', 'Health insurance', 'Research stipend']
+            }
+        ]
+    },
+    offline: {
+        icon: '📊',
+        category: 'Offline Roles',
+        color: '#10b981',
+        roles: [
+            {
+                title: 'Delivery Executive',
+                type: 'Part-Time / Full-Time · On-site',
+                location: 'Pune, India',
+                experience: '0–1 Year',
+                salary: '₹2L – ₹4L / year',
+                about: 'Be the face of Vector.ioST in the field. As a Delivery Executive, you will ensure that our physical products and merchandise reach clients on time and in perfect condition, while maintaining excellent customer relationships.',
+                skills: ['Time Management', 'Customer Service', 'Navigation Apps', 'Communication', 'Reliability'],
+                responsibilities: [
+                    'Pick up and deliver products to clients on schedule',
+                    'Maintain delivery records and update tracking systems',
+                    'Handle client queries and resolve on-delivery issues',
+                    'Ensure product packaging integrity on delivery',
+                    'Report delivery status to operations team'
+                ],
+                perks: ['Fuel reimbursement', 'Flexible shifts', 'Performance bonus', 'Health insurance', 'Two-wheeler allowance']
+            },
+            {
+                title: 'Social Media Influencer / Creator',
+                type: 'Contract · Remote',
+                location: 'Anywhere in India',
+                experience: 'Portfolio Required',
+                salary: '₹15K – ₹50K / month (+ revenue share)',
+                about: 'We are partnering with social media creators who align with our brand. As a Vector.ioST Creator, you will create authentic, engaging content about our products and services and grow our brand presence on Instagram, YouTube, and more.',
+                skills: ['Content Creation', 'Instagram / YouTube / TikTok', 'Photography / Videography', 'Audience Engagement', 'Brand Awareness'],
+                responsibilities: [
+                    'Create and post sponsored content about Vector.ioST products',
+                    'Produce Reels, Shorts, or YouTube videos as agreed',
+                    'Share authentic reviews and product demonstrations',
+                    'Engage with your community and respond to comments',
+                    'Submit monthly performance analytics reports'
+                ],
+                perks: ['Flexible work', 'Revenue share', 'Free products', 'Brand partnerships', 'Creative freedom']
+            },
+            {
+                title: 'Video Content Model',
+                type: 'Contract · On-site / Remote',
+                location: 'Pune, India',
+                experience: 'No Experience Required',
+                salary: 'Per Project / ₹10K – ₹30K / shoot',
+                about: 'We need confident, camera-ready individuals for our advertising campaigns, product Reels, and promotional videos. This is a great opportunity to build your portfolio and be featured in high-quality digital campaigns.',
+                skills: ['On-Camera Presence', 'Following Direction', 'Reliability', 'Good Communication', 'Social Media Presence (Bonus)'],
+                responsibilities: [
+                    'Appear in product advertisements and Reels',
+                    'Follow direction from our creative and production team',
+                    'Attend scheduled shoots (on-site or remote setup)',
+                    'Review and approve final footage',
+                    'Sign usage rights agreement for campaign duration'
+                ],
+                perks: ['Per-project pay', 'Portfolio rights', 'Free styling', 'Flexible schedule', 'Repeat opportunities']
+            },
+            {
+                title: 'Sales & Marketing Executive',
+                type: 'Full-Time · On-site',
+                location: 'Pune, India',
+                experience: '0–2 Years',
+                salary: '₹3L – ₹7L / year + incentives',
+                about: 'Drive business growth by selling Vector.ioST services to local businesses and entrepreneurs. You will generate leads, pitch our products, close deals, and build long-term client relationships.',
+                skills: ['Sales & Negotiation', 'Lead Generation', 'CRM Tools', 'Communication', 'Market Research', 'Cold Outreach'],
+                responsibilities: [
+                    'Identify and approach potential B2B clients',
+                    'Present and pitch Vector.ioST services to prospects',
+                    'Manage the full sales cycle from lead to close',
+                    'Maintain client relationships post-sale',
+                    'Report sales metrics and pipeline status weekly'
+                ],
+                perks: ['Base + commissions', 'Incentive trips', 'Health insurance', 'Growth path to Senior Sales', 'Travel reimbursement']
+            },
+            {
+                title: 'Technical Support Engineer',
+                type: 'Full-Time · On-site / Hybrid',
+                location: 'Pune, India',
+                experience: '0–2 Years',
+                salary: '₹2.5L – ₹6L / year',
+                about: 'Join our support team and be the hero our clients rely on. You will troubleshoot technical issues, provide on-site IT support, and ensure our clients get the most out of Vector.ioST products.',
+                skills: ['Troubleshooting', 'Networking Basics', 'Hardware Setup', 'Customer Communication', 'Ticketing Systems', 'Windows/Mac/Linux'],
+                responsibilities: [
+                    'Respond to client technical support tickets',
+                    'Perform on-site IT setup and troubleshooting',
+                    'Document solutions and update knowledge base',
+                    'Escalate complex issues to the engineering team',
+                    'Conduct client onboarding sessions'
+                ],
+                perks: ['Travel allowance', 'Certifications support', 'Health insurance', 'Growth to Senior Support', 'Flexible hours']
+            }
+        ]
+    },
+    online: {
+        icon: '🛒',
+        category: 'Online Roles',
+        color: '#06b6d4',
+        roles: [
+            {
+                title: 'Digital Marketing Manager',
+                type: 'Full-Time · Remote',
+                location: 'Remote',
+                experience: '2–4 Years',
+                salary: '₹5L – ₹12L / year',
+                about: 'Lead our digital marketing efforts across all channels. You will own our SEO strategy, social media presence, paid campaigns, and email marketing to drive growth and brand awareness for Vector.ioST.',
+                skills: ['Google Ads / Meta Ads', 'SEO / SEM', 'Email Marketing', 'Analytics (GA4)', 'Social Media Strategy', 'Content Marketing'],
+                responsibilities: [
+                    'Develop and execute multi-channel digital marketing strategy',
+                    'Manage paid advertising campaigns (Google, Meta, LinkedIn)',
+                    'Oversee SEO and content calendar',
+                    'Analyze marketing data and report on KPIs',
+                    'Coordinate with design and content teams'
+                ],
+                perks: ['Remote-first', 'Ad spend budget', 'Equity options', 'Health insurance', 'Learning budget']
+            },
+            {
+                title: 'SEO / Content Strategist',
+                type: 'Full-Time · Remote',
+                location: 'Remote',
+                experience: '1–3 Years',
+                salary: '₹3L – ₹8L / year',
+                about: 'We want to be the top result for every search our audience cares about. You will own our content and SEO strategy — from keyword research and content briefs to long-form articles and link building.',
+                skills: ['Keyword Research (Ahrefs / SEMrush)', 'On-Page SEO', 'Content Writing', 'Link Building', 'Technical SEO Basics', 'Google Search Console'],
+                responsibilities: [
+                    'Develop and execute SEO content strategy',
+                    'Research keywords and create content briefs',
+                    'Write and edit high-quality long-form content',
+                    'Track rankings and organic traffic metrics',
+                    'Build backlinks through outreach and partnerships'
+                ],
+                perks: ['Remote-first', 'SEO tool access', 'Flexible hours', 'Health insurance', 'Writing bonuses']
+            },
+            {
+                title: 'Community Manager',
+                type: 'Full-Time · Remote',
+                location: 'Remote',
+                experience: '1–2 Years',
+                salary: '₹3L – ₹7L / year',
+                about: 'Build and nurture the Vector.ioST community across Discord, Twitter/X, LinkedIn, and beyond. You will be the voice of our brand, engage our audience daily, and create a sense of belonging among our users and fans.',
+                skills: ['Community Management', 'Discord / Slack', 'Social Media', 'Content Creation', 'Empathy & Communication', 'Event Planning'],
+                responsibilities: [
+                    'Manage and grow our Discord, Twitter/X, and LinkedIn communities',
+                    'Respond to community messages and questions daily',
+                    'Plan and run online community events and AMAs',
+                    'Collect and relay community feedback to the product team',
+                    'Create engagement-driving content and initiatives'
+                ],
+                perks: ['Remote-first', 'Flexible hours', 'Health insurance', 'Community budget', 'Brand swag']
+            },
+            {
+                title: 'Customer Success Lead',
+                type: 'Full-Time · Remote',
+                location: 'Remote',
+                experience: '1–3 Years',
+                salary: '₹4L – ₹9L / year',
+                about: 'Ensure our clients succeed with Vector.ioST products. You will onboard new clients, drive product adoption, resolve issues, and turn happy customers into long-term advocates.',
+                skills: ['Customer Onboarding', 'CRM Tools', 'Communication & Empathy', 'Product Knowledge', 'Upselling', 'Data Analysis'],
+                responsibilities: [
+                    'Onboard new customers and guide initial product setup',
+                    'Monitor client health scores and proactively reach out',
+                    'Resolve escalated support issues with speed and care',
+                    'Conduct quarterly business reviews with key clients',
+                    'Identify upsell and expansion opportunities'
+                ],
+                perks: ['Remote-first', 'Performance bonus', 'Equity options', 'Health insurance', 'Flexible hours']
+            }
+        ]
+    }
+};
+
+let currentCareerCategory = null;
+let currentJobIndex = 0;
+
+function openCareerModal(categoryKey) {
+    const data = CAREER_DATA[categoryKey];
+    if (!data) return;
+    currentCareerCategory = categoryKey;
+    currentJobIndex = 0;
+    renderCareerModal(data, 0);
+    document.getElementById('careerModalOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeCareerModal() {
+    const overlay = document.getElementById('careerModalOverlay');
+    if (overlay) {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+function renderCareerModal(data, jobIndex) {
+    const job = data.roles[jobIndex];
+    const totalJobs = data.roles.length;
+    const body = document.getElementById('careerModalBody');
+    body.innerHTML = `
+        <div class="cm-header" style="--cm-color: ${data.color}">
+            <div class="cm-category-row">
+                <span class="cm-category-icon">${data.icon}</span>
+                <span class="cm-category-label">${data.category}</span>
+                <span class="cm-job-counter">${jobIndex + 1} / ${totalJobs}</span>
+            </div>
+            <h2 class="cm-job-title">${job.title}</h2>
+            <div class="cm-meta-row">
+                <span class="cm-meta-pill">📍 ${job.location}</span>
+                <span class="cm-meta-pill">⏱ ${job.type}</span>
+                <span class="cm-meta-pill">💼 ${job.experience}</span>
+                <span class="cm-meta-pill cm-salary">💰 ${job.salary}</span>
+            </div>
+        </div>
+
+        <div class="cm-content">
+            <div class="cm-section">
+                <h4 class="cm-section-title">About this Role</h4>
+                <p class="cm-about-text">${job.about}</p>
+            </div>
+
+            <div class="cm-section">
+                <h4 class="cm-section-title">Skills Required</h4>
+                <div class="cm-skills-grid">
+                    ${job.skills.map(s => `<span class="cm-skill-tag">${s}</span>`).join('')}
+                </div>
+            </div>
+
+            <div class="cm-section">
+                <h4 class="cm-section-title">Responsibilities</h4>
+                <ul class="cm-resp-list">
+                    ${job.responsibilities.map(r => `<li><span class="cm-resp-dot" style="background:${data.color}"></span>${r}</li>`).join('')}
+                </ul>
+            </div>
+
+            <div class="cm-section">
+                <h4 class="cm-section-title">Perks & Benefits</h4>
+                <div class="cm-perks-row">
+                    ${job.perks.map(p => `<span class="cm-perk-badge">✦ ${p}</span>`).join('')}
+                </div>
+            </div>
+        </div>
+
+        <div class="cm-footer">
+            <div class="cm-nav-btns">
+                <button class="cm-nav-btn" onclick="navigateCareerJob(-1)" ${jobIndex === 0 ? 'disabled' : ''}>← Prev</button>
+                <div class="cm-nav-dots">
+                    ${data.roles.map((_, i) => `<span class="cm-nav-dot ${i === jobIndex ? 'active' : ''}" onclick="navigateCareerJob(${i - jobIndex})"></span>`).join('')}
+                </div>
+                <button class="cm-nav-btn" onclick="navigateCareerJob(1)" ${jobIndex === totalJobs - 1 ? 'disabled' : ''}>Next →</button>
+            </div>
+            <button class="btn btn-primary btn-glow cm-apply-btn" onclick="applyForJob('${job.title}')">
+                <span>Apply for this Role</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+        </div>
+    `;
+}
+
+function navigateCareerJob(delta) {
+    const data = CAREER_DATA[currentCareerCategory];
+    if (!data) return;
+    const newIndex = currentJobIndex + delta;
+    if (newIndex < 0 || newIndex >= data.roles.length) return;
+    currentJobIndex = newIndex;
+    renderCareerModal(data, currentJobIndex);
+}
+
+function applyForJob(jobTitle) {
+    // Scroll to contact section and pre-fill interest
+    closeCareerModal();
+    setTimeout(() => {
+        scrollToSection('contact');
+        // Try to highlight the relevant interest tag
+        const tags = document.querySelectorAll('.interest-tag');
+        tags.forEach(t => {
+            if (t.textContent.toLowerCase().includes('web') || t.textContent.toLowerCase().includes('app')) {
+                t.classList.add('active');
+            }
+        });
+        // Show a small toast
+        showToast(`Applying for: ${jobTitle} — fill out the form below!`);
+    }, 350);
+}
+
+function showToast(msg) {
+    let toast = document.getElementById('vectorToast');
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'vectorToast';
+        toast.style.cssText = 'position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(80px);background:var(--primary);color:#fff;padding:0.75rem 1.5rem;border-radius:50px;font-size:0.9rem;z-index:99999;transition:transform 0.35s cubic-bezier(.34,1.56,.64,1),opacity 0.3s;opacity:0;white-space:nowrap;box-shadow:0 8px 32px rgba(99,102,241,0.4);';
+        document.body.appendChild(toast);
+    }
+    toast.textContent = msg;
+    toast.style.opacity = '1';
+    toast.style.transform = 'translateX(-50%) translateY(0)';
+    clearTimeout(toast._timer);
+    toast._timer = setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(-50%) translateY(80px)';
+    }, 3500);
+}
+
+document.getElementById('careerModalClose')?.addEventListener('click', closeCareerModal);
+document.getElementById('careerModalOverlay')?.addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) closeCareerModal();
 });
