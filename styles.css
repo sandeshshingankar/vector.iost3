@@ -7138,3 +7138,175 @@ section { padding: 7rem 0; }
     .cm-job-title { font-size: 1.3rem; }
     .career-modal-panel { border-radius: var(--radius); }
 }
+
+/* ==================== NAV & FOOTER LOGO IMAGE ==================== */
+.nav-logo-img {
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    filter: brightness(1);
+    transition: opacity 0.2s;
+}
+.nav-logo-img:hover { opacity: 0.85; }
+
+/* When navbar is scrolled (dark bg), logo stays visible */
+.navbar.scrolled .nav-logo-img { filter: brightness(1); }
+
+.footer-logo-img {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    margin-bottom: 0.75rem;
+    filter: brightness(1);
+}
+
+/* ==================== EVENT ROW LAYOUT ==================== */
+.event-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.event-row.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.event-info {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+/* ==================== EVENT IFRAME PREVIEW ==================== */
+.event-preview {
+    width: 100%;
+}
+
+.event-iframe-wrap {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border2);
+    background: var(--surface);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(99,102,241,0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.event-iframe-wrap:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(99,102,241,0.35);
+    border-color: rgba(99,102,241,0.4);
+}
+
+.event-browser-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.65rem 1rem;
+    background: var(--bg3);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+}
+
+.eb-dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.eb-dot.red    { background: #ff5f57; }
+.eb-dot.yellow { background: #ffbd2e; }
+.eb-dot.green  { background: #28ca41; }
+
+.eb-url {
+    flex: 1;
+    margin: 0 0.5rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px;
+    padding: 0.28rem 0.7rem;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: monospace;
+    letter-spacing: 0.01em;
+}
+
+.eb-open-btn {
+    color: var(--text-dim);
+    display: flex;
+    align-items: center;
+    transition: color 0.2s;
+}
+.event-iframe-wrap:hover .eb-open-btn { color: var(--primary-light); }
+
+.event-iframe-body {
+    position: relative;
+    height: 380px;
+    overflow: hidden;
+    background: #f4f4f4;
+}
+
+.event-iframe-body iframe {
+    width: 160%;
+    height: 160%;
+    border: none;
+    transform: scale(0.625);
+    transform-origin: top left;
+    pointer-events: none;
+    display: block;
+}
+
+.event-iframe-click-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    cursor: pointer;
+    background: transparent;
+}
+
+/* Hover shimmer hint */
+.event-iframe-click-overlay::after {
+    content: '🌐  Visit Event Website';
+    position: absolute;
+    bottom: 1.2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(12px);
+    background: rgba(99,102,241,0.92);
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 0.5rem 1.1rem;
+    border-radius: 50px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+    box-shadow: 0 4px 20px rgba(99,102,241,0.5);
+    font-family: var(--font-body);
+}
+.event-iframe-wrap:hover .event-iframe-click-overlay::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .event-row {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .event-iframe-body { height: 280px; }
+}
+@media (max-width: 600px) {
+    .event-info { flex-direction: column; gap: 0.75rem; }
+    .event-iframe-body { height: 220px; }
+    .nav-logo-img { height: 30px; }
+}
