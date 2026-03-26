@@ -262,6 +262,10 @@
                         <div class="step-tags">
                             <span>500+ Registration</span><span>For College Students</span><span>Customizable</span>
                         </div>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="event-website-btn">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                            Visit Event Website
+                        </a>
                     </div>
                     <div class="step-visual step-v1">
                         <div class="sv-grid">
@@ -293,16 +297,16 @@
                 <button class="tab-btn" data-tab="ecommerce">🛒 Online Roles</button>
             </div>
             <div class="apps-grid">
-                <div class="app-card" data-app="builder">
+                <div class="app-card career-card" data-app="builder" onclick="openCareerModal('tech')">
                     <div class="app-card-bg"></div>
                     <div class="app-header">
                         <div class="app-icon">🏗️</div>
                         <div>
                             <h3>Tech Role</h3>
-                            <span class="app-badge">Apply Now</span>
+                            <span class="app-badge">5 Openings</span>
                         </div>
                     </div>
-                    <p class="app-description">We don’t just write code — we build powerful digital experiences. Be a part of it.</p>
+                    <p class="app-description">We don't just write code — we build powerful digital experiences. Be a part of it.</p>
                     <ul class="app-features">
                         <li><span class="check">✓</span> Full Stack Developer</li>
                         <li><span class="check">✓</span> DevOps / Cloud Engineer</li>
@@ -310,17 +314,17 @@
                         <li><span class="check">✓</span> Product Developer / Software Engineer</li>
                         <li><span class="check">✓</span> Backend Developer</li>
                     </ul>
-                    <button class="btn btn-outline app-btn">Apply Now →</button>
+                    <button class="btn btn-outline app-btn" onclick="event.stopPropagation(); openCareerModal('tech')">View Openings →</button>
                 </div>
 
-                <div class="app-card featured" data-app="ai">
+                <div class="app-card featured career-card" data-app="ai" onclick="openCareerModal('ai')">
                     <div class="app-card-bg featured-bg"></div>
-                    <div class="featured-ribbon">✦ Apply Now</div>
+                    <div class="featured-ribbon">✦ Hiring Now</div>
                     <div class="app-header">
                         <div class="app-icon">🤖</div>
                         <div>
                             <h3>AI Roles</h3>
-                            <span class="app-badge badge-accent">Apply Now</span>
+                            <span class="app-badge badge-accent">5 Openings</span>
                         </div>
                     </div>
                     <p class="app-description">Your creative co-pilot. Build intelligent systems, generate content, write code, and design smart solutions using AI.</p>
@@ -328,19 +332,19 @@
                         <li><span class="check">✓</span> ML Engineer</li>
                         <li><span class="check">✓</span> AI Engineer</li>
                         <li><span class="check">✓</span> NLP Engineer</li>
-                        <li><span class="check">✓</span>  Data Scientist</li>
+                        <li><span class="check">✓</span> Data Scientist</li>
                         <li><span class="check">✓</span> LLM Engineer</li>
                     </ul>
-                    <button class="btn btn-primary app-btn">Apply Now →</button>
+                    <button class="btn btn-primary app-btn" onclick="event.stopPropagation(); openCareerModal('ai')">View Openings →</button>
                 </div>
 
-                <div class="app-card" data-app="analytics">
+                <div class="app-card career-card" data-app="analytics" onclick="openCareerModal('offline')">
                     <div class="app-card-bg"></div>
                     <div class="app-header">
                         <div class="app-icon">📊</div>
                         <div>
                             <h3>Offline Role</h3>
-                            <span class="app-badge">Apply Now</span>
+                            <span class="app-badge">5 Openings</span>
                         </div>
                     </div>
                     <p class="app-description">Delivering real-world solutions through on-site expertise, hands-on support, and professional services beyond the screen.</p>
@@ -351,7 +355,26 @@
                         <li><span class="check">✓</span> Sales & Marketing Executive</li>
                         <li><span class="check">✓</span> Technical Support Engineer</li>
                     </ul>
-                    <button class="btn btn-outline app-btn">Apply Now →</button>
+                    <button class="btn btn-outline app-btn" onclick="event.stopPropagation(); openCareerModal('offline')">View Openings →</button>
+                </div>
+
+                <div class="app-card career-card" data-app="ecommerce" onclick="openCareerModal('online')">
+                    <div class="app-card-bg"></div>
+                    <div class="app-header">
+                        <div class="app-icon">🛒</div>
+                        <div>
+                            <h3>Online Roles</h3>
+                            <span class="app-badge">4 Openings</span>
+                        </div>
+                    </div>
+                    <p class="app-description">Drive growth and deliver value through digital channels — from marketing to customer success, all remote-friendly.</p>
+                    <ul class="app-features">
+                        <li><span class="check">✓</span> Digital Marketing Manager</li>
+                        <li><span class="check">✓</span> SEO / Content Strategist</li>
+                        <li><span class="check">✓</span> Community Manager</li>
+                        <li><span class="check">✓</span> Customer Success Lead</li>
+                    </ul>
+                    <button class="btn btn-outline app-btn" onclick="event.stopPropagation(); openCareerModal('online')">View Openings →</button>
                 </div>
             </div>
         </div>
@@ -861,6 +884,18 @@
                     <div class="iframe-spinner"></div>
                     <span>Loading...</span>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Career Job Modal -->
+    <div class="career-modal-overlay" id="careerModalOverlay">
+        <div class="career-modal-panel" id="careerModalPanel">
+            <button class="career-modal-close" id="careerModalClose" aria-label="Close">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+            <div class="career-modal-body" id="careerModalBody">
+                <!-- Injected by JS -->
             </div>
         </div>
     </div>
