@@ -19,10 +19,7 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo" onclick="scrollToSection('home')">
-                <div class="logo-mark">
-                    <span class="logo-bolt">⚡</span>
-                </div>
-                <span class="logo-text">Vector.ioST</span>
+                <img src="logo.png" alt="Vector.ioST" class="nav-logo-img" />
             </div>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link">Home</a></li>
@@ -254,25 +251,36 @@
             </div>
             <div class="steps-wrapper">
                 <div class="steps-line"></div>
-                <div class="step-item">
-                    <div class="step-number">01</div>
-                    <div class="step-content">
-                        <h3>Vector.io HACKATHON</h3>
-                        <p>We successfully organized a hackathon where developers collaborated, created innovative solutions, and showcased their technical skills.</p>
-                        <div class="step-tags">
-                            <span>500+ Registration</span><span>For College Students</span><span>Customizable</span>
+                <div class="event-row">
+                    <div class="event-info">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <h3>Vector.io HACKATHON</h3>
+                            <p>We successfully organized a hackathon where developers collaborated, created innovative solutions, and showcased their technical skills.</p>
+                            <div class="step-tags">
+                                <span>500+ Registration</span><span>For College Students</span><span>Customizable</span>
+                            </div>
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="event-website-btn">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                                Visit Event Website
+                            </a>
                         </div>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="event-website-btn">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                            Visit Event Website
-                        </a>
                     </div>
-                    <div class="step-visual step-v1">
-                        <div class="sv-grid">
-                            <div class="sv-card"></div>
-                            <div class="sv-card active"></div>
-                            <div class="sv-card"></div>
-                            <div class="sv-card"></div>
+                    <div class="event-preview">
+                        <div class="event-iframe-wrap" onclick="window.open('#','_blank')">
+                            <div class="event-browser-bar">
+                                <span class="eb-dot red"></span>
+                                <span class="eb-dot yellow"></span>
+                                <span class="eb-dot green"></span>
+                                <span class="eb-url">#</span>
+                                <span class="eb-open-btn">
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                </span>
+                            </div>
+                            <div class="event-iframe-body">
+                                <iframe src="#" scrolling="no" tabindex="-1" aria-hidden="true" sandbox="allow-scripts allow-same-origin"></iframe>
+                                <div class="event-iframe-click-overlay" title="Click to visit event website"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -761,7 +769,7 @@
             <div class="footer-top">
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        <span class="logo-bolt">⚡</span>Vector.ioST
+                        <img src="logo.png" alt="Vector.ioST" class="footer-logo-img" />
                     </div>
                     <p>The all-in-one platform for creators who want to build fast, beautiful, and without limits.</p>
                     <div class="social-links">
