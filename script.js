@@ -618,12 +618,12 @@ const SERVICE_DATA = {
         desc: 'Hands-on professional services delivered on-site.',
         type: 'items',
         items: [
-            { icon: '🖨️', title: 'Print & Branding', desc: 'Business cards, banners, brochures, and full brand identity kits printed locally.', tags: ['Branding', 'Print'] },
-            { icon: '🏢', title: 'On-Site IT Setup', desc: 'Network setup, workstation configuration, and IT infrastructure installation.', tags: ['Networking', 'Hardware'] },
-            { icon: '🎤', title: 'Event Tech Support', desc: 'AV setup, live streaming, and technical support for events and conferences.', tags: ['Events', 'AV', 'Live'] },
-            { icon: '📸', title: 'Photography & Video', desc: 'Professional shoots for products, teams, and events with same-day delivery.', tags: ['Media', 'Production'] },
-            { icon: '🧑‍🏫', title: 'Training Workshops', desc: 'In-person workshops on digital tools, coding, and entrepreneurship.', tags: ['Education', 'Workshop'] },
-            { icon: '🚚', title: 'Product Delivery', desc: 'Swift on-time delivery of physical products and merchandise.', tags: ['Logistics', 'On-time'] },
+            { icon: '🖨️', title: 'Print & Branding', desc: 'Business cards, banners, brochures, and full brand identity kits printed locally.', tags: ['Branding', 'Print'], price: '₹3,999/project' },
+            { icon: '🏢', title: 'On-Site IT Setup', desc: 'Network setup, workstation configuration, and IT infrastructure installation.', tags: ['Networking', 'Hardware'], price: '₹5,999/setup' },
+            { icon: '🎤', title: 'Event Tech Support', desc: 'AV setup, live streaming, and technical support for events and conferences.', tags: ['Events', 'AV', 'Live'], price: '₹8,999/event' },
+            { icon: '📸', title: 'Photography & Video', desc: 'Professional shoots for products, teams, and events with same-day delivery.', tags: ['Media', 'Production'], price: '₹6,999/shoot' },
+            { icon: '🧑‍🏫', title: 'Training Workshops', desc: 'In-person workshops on digital tools, coding, and entrepreneurship.', tags: ['Education', 'Workshop'], price: '₹4,999/session' },
+            { icon: '🚚', title: 'Product Delivery', desc: 'Swift on-time delivery of physical products and merchandise.', tags: ['Logistics', 'On-time'], price: '₹499/delivery' },
         ]
     },
     apps: {
@@ -632,10 +632,10 @@ const SERVICE_DATA = {
         desc: 'Native and cross-platform apps we\'ve built and launched.',
         type: 'items',
         items: [
-            { icon: '📱', title: 'VectorTask', desc: 'A productivity app for teams — task management, deadlines, and collaboration.', tags: ['iOS', 'Android', 'Free'], link: '#' },
-            { icon: '🛒', title: 'ShopVector', desc: 'A full-featured e-commerce app with inventory, orders, and analytics built-in.', tags: ['Android', 'Paid'], link: '#' },
-            { icon: '📰', title: 'NewsFlow', desc: 'AI-curated news app delivering personalised feeds with zero noise.', tags: ['iOS', 'Android', 'AI'], link: '#' },
-            { icon: '💪', title: 'FitVector', desc: 'Health & fitness tracker with workout plans, diet logs, and progress charts.', tags: ['iOS', 'Beta'], link: '#' },
+            { icon: '📱', title: 'VectorTask', desc: 'A productivity app for teams — task management, deadlines, and collaboration.', tags: ['iOS', 'Android', 'Free'], price: 'Free', link: '#' },
+            { icon: '🛒', title: 'ShopVector', desc: 'A full-featured e-commerce app with inventory, orders, and analytics built-in.', tags: ['Android', 'Paid'], price: '₹1,299/year', link: '#' },
+            { icon: '📰', title: 'NewsFlow', desc: 'AI-curated news app delivering personalised feeds with zero noise.', tags: ['iOS', 'Android', 'AI'], price: '₹499/month', link: '#' },
+            { icon: '💪', title: 'FitVector', desc: 'Health & fitness tracker with workout plans, diet logs, and progress charts.', tags: ['iOS', 'Beta'], price: 'Free Beta', link: '#' },
         ]
     },
     products: {
@@ -644,11 +644,11 @@ const SERVICE_DATA = {
         desc: 'Digital tools and SaaS products built by Vector.ioST.',
         type: 'items',
         items: [
-            { icon: '🧠', title: 'VectorAI Studio', desc: 'Generate content, code, and designs using our proprietary AI engine.', tags: ['AI', 'SaaS', 'Freemium'], link: '#' },
-            { icon: '🏗️', title: 'SiteBuilder Pro', desc: 'Drag-and-drop website builder with 200+ templates and live preview.', tags: ['No-code', 'SaaS'], link: '#' },
-            { icon: '📊', title: 'DataLens', desc: 'Plug your databases in and get beautiful, shareable dashboards instantly.', tags: ['Analytics', 'B2B'], link: '#' },
-            { icon: '🔗', title: 'LinkForge', desc: 'Smart link-in-bio and QR code generator with detailed click analytics.', tags: ['Free', 'Marketing'], link: '#' },
-            { icon: '📬', title: 'MailVector', desc: 'Transactional email API with 99.9% deliverability and rich analytics.', tags: ['API', 'Email', 'Dev'], link: '#' },
+            { icon: '🧠', title: 'VectorAI Studio', desc: 'Generate content, code, and designs using our proprietary AI engine.', tags: ['AI', 'SaaS', 'Freemium'], price: 'Free / ₹999/mo', link: '#' },
+            { icon: '🏗️', title: 'SiteBuilder Pro', desc: 'Drag-and-drop website builder with 200+ templates and live preview.', tags: ['No-code', 'SaaS'], price: '₹1,499/month', link: '#' },
+            { icon: '📊', title: 'DataLens', desc: 'Plug your databases in and get beautiful, shareable dashboards instantly.', tags: ['Analytics', 'B2B'], price: '₹2,999/month', link: '#' },
+            { icon: '🔗', title: 'LinkForge', desc: 'Smart link-in-bio and QR code generator with detailed click analytics.', tags: ['Free', 'Marketing'], price: 'Free / ₹399/mo', link: '#' },
+            { icon: '📬', title: 'MailVector', desc: 'Transactional email API with 99.9% deliverability and rich analytics.', tags: ['API', 'Email', 'Dev'], price: '₹1,999/month', link: '#' },
         ]
     },
     'digital-marketing': {
@@ -657,12 +657,12 @@ const SERVICE_DATA = {
         desc: 'End-to-end marketing services to grow your brand online.',
         type: 'items',
         items: [
-            { icon: '🔍', title: 'SEO Optimisation', desc: 'On-page, off-page, and technical SEO to rank your site on page one.', tags: ['SEO', 'Content', 'Audit'] },
-            { icon: '📣', title: 'Social Media Management', desc: 'Content creation, scheduling, and engagement across all major platforms.', tags: ['Instagram', 'LinkedIn', 'X'] },
-            { icon: '💰', title: 'Paid Ads (PPC)', desc: 'Google Ads, Meta Ads, and LinkedIn campaigns tuned for maximum ROI.', tags: ['Google Ads', 'Meta', 'ROI'] },
-            { icon: '✉️', title: 'Email Marketing', desc: 'Automated drip sequences, newsletters, and re-engagement campaigns.', tags: ['Automation', 'Segments'] },
-            { icon: '🎥', title: 'Video & Reels', desc: 'Short-form video content, YouTube SEO, and Reels that go viral.', tags: ['YouTube', 'Reels', 'Creative'] },
-            { icon: '📈', title: 'Growth Consulting', desc: 'Strategy sessions and roadmaps to scale your digital presence fast.', tags: ['Strategy', 'Consulting'] },
+            { icon: '🔍', title: 'SEO Optimisation', desc: 'On-page, off-page, and technical SEO to rank your site on page one.', tags: ['SEO', 'Content', 'Audit'], price: '₹8,999/month' },
+            { icon: '📣', title: 'Social Media Management', desc: 'Content creation, scheduling, and engagement across all major platforms.', tags: ['Instagram', 'LinkedIn', 'X'], price: '₹6,999/month' },
+            { icon: '💰', title: 'Paid Ads (PPC)', desc: 'Google Ads, Meta Ads, and LinkedIn campaigns tuned for maximum ROI.', tags: ['Google Ads', 'Meta', 'ROI'], price: '₹12,999/month' },
+            { icon: '✉️', title: 'Email Marketing', desc: 'Automated drip sequences, newsletters, and re-engagement campaigns.', tags: ['Automation', 'Segments'], price: '₹4,999/month' },
+            { icon: '🎥', title: 'Video & Reels', desc: 'Short-form video content, YouTube SEO, and Reels that go viral.', tags: ['YouTube', 'Reels', 'Creative'], price: '₹9,999/month' },
+            { icon: '📈', title: 'Growth Consulting', desc: 'Strategy sessions and roadmaps to scale your digital presence fast.', tags: ['Strategy', 'Consulting'], price: '₹5,999/session' },
         ]
     }
 };
@@ -700,6 +700,7 @@ function buildServiceContent(serviceKey) {
                     <div class="sic-title">${item.title}</div>
                     <div class="sic-desc">${item.desc}</div>
                     ${item.tags ? `<div class="sic-tags">${item.tags.map(t=>`<span class="sic-tag">${t}</span>`).join('')}</div>` : ''}
+                    ${item.price ? `<div class="sic-price">${item.price}</div>` : ''}
                     ${item.link ? `<a class="sic-link" href="${item.link}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Learn more →</a>` : ''}
                 </div>
             `).join('')}
