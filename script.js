@@ -617,10 +617,10 @@ const SERVICE_DATA = {
         items: [
             { icon: '🖨️', title: 'Print & Branding', desc: 'Business cards, banners, brochures, and full brand identity kits printed locally.', tags: ['Branding', 'Print'], price: '₹2,999/project(depends on requirements)' },
             { icon: '🏢', title: 'On-Site IT Setup', desc: 'Network setup, workstation configuration, and IT infrastructure installation.', tags: ['Networking', 'Hardware'], price: '₹5,999/setup' },
-            { icon: '🧹', title: 'Housekeeping services shops.', desc: 'AV setup, live streaming, and technical support for events and conferences.', tags: ['Events', 'AV', 'Live'], price: '₹8,999/event' },
-            { icon: '📸', title: 'Photography & Video', desc: 'Professional shoots for products, teams, and events with same-day delivery.', tags: ['Media', 'Production'], price: '₹6,999/shoot' },
-            { icon: '🧑‍🏫', title: 'Training Workshops', desc: 'In-person workshops on digital tools, coding, and entrepreneurship.', tags: ['Education', 'Workshop'], price: '₹4,999/session' },
-            { icon: '🚚', title: 'Product Delivery', desc: 'Swift on-time delivery of physical products and merchandise.', tags: ['Logistics', 'On-time'], price: '₹499/delivery' },
+            { icon: '🧹', title: 'Housekeeping services', desc: 'We provide professional housekeeping services to keep your shop & Home clean, organized, and customer-ready at all times.', tags: ['Cleaning'], price: '₹99 per day (for one room)' },
+            { icon: '📸', title: 'Photography & Video', desc: 'Professional shoots for products, teams, and events with same-day delivery.', tags: ['Media', 'Production'], price: '₹7,999/shoot' },
+            // { icon: '🧑‍🏫', title: 'Training Workshops', desc: 'In-person workshops on digital tools, coding, and entrepreneurship.', tags: ['Education', 'Workshop'], price: '₹4,999/session' },
+            // { icon: '🚚', title: 'Product Delivery', desc: 'Swift on-time delivery of physical products and merchandise.', tags: ['Logistics', 'On-time'], price: '₹499/delivery' },
         ]
     },
     apps: {
@@ -641,11 +641,11 @@ const SERVICE_DATA = {
         desc: 'Digital tools and SaaS products built by Vector.ioST.',
         type: 'items',
         items: [
-            { icon: '🧠', title: 'VectorAI Studio', desc: 'Generate content, code, and designs using our proprietary AI engine.', tags: ['AI', 'SaaS', 'Freemium'], price: 'Free / ₹999/mo', link: '#' },
-            { icon: '🏗️', title: 'SiteBuilder Pro', desc: 'Drag-and-drop website builder with 200+ templates and live preview.', tags: ['No-code', 'SaaS'], price: '₹1,499/month', link: '#' },
-            { icon: '📊', title: 'DataLens', desc: 'Plug your databases in and get beautiful, shareable dashboards instantly.', tags: ['Analytics', 'B2B'], price: '₹2,999/month', link: '#' },
-            { icon: '🔗', title: 'LinkForge', desc: 'Smart link-in-bio and QR code generator with detailed click analytics.', tags: ['Free', 'Marketing'], price: 'Free / ₹399/mo', link: '#' },
-            { icon: '📬', title: 'MailVector', desc: 'Transactional email API with 99.9% deliverability and rich analytics.', tags: ['API', 'Email', 'Dev'], price: '₹1,999/month', link: '#' },
+            { icon: '📱', title: 'Smart OR Case All Device', desc: 'Custom mobile cases with a unique QR code. If your device is lost, anyone can scan the code to contact you securely.', tags: ['Phone Cover', 'Laptop Case', 'Earphone case'], price: 'Starting from ₹399', link: '#' },
+            { icon: '🌸', title: 'Fresh Flower Packet', desc: 'Get fresh pooja flower packs delivered to your home along with a printed Aarti booklet for your daily prayers.', tags: ['No-code', 'SaaS'], price: '₹19 per pack (Free Delivery) | ₹15 with Monthly Subscription', link: '#' },
+            { icon: '🥜', title: 'Dry Food Pack', desc: 'Get fresh and hygienic dry food packs like nuts, dry fruits, and snacks delivered to your home for daily consumption.', tags: ['Dry Fruits', 'Healthy'], price: 'Starting from ₹99', link: '#' },
+            // { icon: '🔗', title: 'LinkForge', desc: 'Smart link-in-bio and QR code generator with detailed click analytics.', tags: ['Free', 'Marketing'], price: 'Free / ₹399/mo', link: '#' },
+            // { icon: '📬', title: 'MailVector', desc: 'Transactional email API with 99.9% deliverability and rich analytics.', tags: ['API', 'Email', 'Dev'], price: '₹1,999/month', link: '#' },
         ]
     },
     'digital-marketing': {
