@@ -1274,3 +1274,114 @@ document.getElementById('careerModalClose')?.addEventListener('click', closeCare
 document.getElementById('careerModalOverlay')?.addEventListener('click', (e) => {
     if (e.target === e.currentTarget) closeCareerModal();
 });
+
+// ==================== MOBILE ENHANCEMENTS ====================
+
+// Detect touch device and disable custom cursor
+const isTouchDevice = () => window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+
+if (isTouchDevice()) {
+    const cursorEl = document.getElementById('cursor');
+    const cursorFollowerEl = document.getElementById('cursorFollower');
+    if (cursorEl) cursorEl.style.display = 'none';
+    if (cursorFollowerEl) cursorFollowerEl.style.display = 'none';
+    document.body.style.cursor = 'auto';
+}
+
+// Close mobile nav on outside click / scroll
+document.addEventListener('click', (e) => {
+    if (
+        navMenu &&
+        navMenu.classList.contains('active') &&
+        !navMenu.contains(e.target) &&
+        !hamburger?.contains(e.target)
+    ) {
+        navMenu.classList.remove('active');
+        if (hamburger) {
+            const spans = hamburger.querySelectorAll('span');
+            spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+        }
+    }
+});
+
+window.addEventListener('scroll', () => {
+    if (navMenu && navMenu.classList.contains('active')) {
+        navMenu.classList.remove('active');
+        if (hamburger) {
+            const spans = hamburger.querySelectorAll('span');
+            spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+        }
+    }
+}, { passive: true });
+
+// Reduce particle count on mobile for better performance
+if (isTouchDevice() || window.innerWidth < 768) {
+    // Particle canvas performance: limit particles
+    const canvasEl = document.getElementById('particleCanvas');
+    if (canvasEl) {
+        const MAX_MOBILE_PARTICLES = 30;
+        // Remove excess particles (they were already pushed in the IIFE above)
+        // This runs after the main script; trim the array if it exists globally
+        if (typeof particles !== 'undefined' && particles.length > MAX_MOBILE_PARTICLES) {
+            particles.splice(MAX_MOBILE_PARTICLES);
+        }
+    }
+}
+
+// Viewport height fix for mobile browsers (address bar causes 100vh issues)
+function setVhProperty() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+setVhProperty();
+window.addEventListener('resize', setVhProperty, { passive: true });
+
+// Prevent body scroll when any modal/overlay is open (robust mobile fix)
+function lockBodyScroll() { document.body.style.overflow = 'hidden'; document.body.style.position = 'fixed'; document.body.style.width = '100%'; }
+function unlockBodyScroll() { document.body.style.overflow = ''; document.body.style.position = ''; document.body.style.width = ''; }
+
+// Patch openCareerModal to use improved scroll lock
+const _origOpenCareer = typeof openCareerModal === 'function' ? openCareerModal : null;
+if (_origOpenCareer) {
+    window.openCareerModal = function(key) {
+        _origOpenCareer(key);
+        if (isTouchDevice()) lockBodyScroll();
+    };
+}
+const _origCloseCareer = typeof closeCareerModal === 'function' ? closeCareerModal : null;
+if (_origCloseCareer) {
+    window.closeCareerModal = function() {
+        _origCloseCareer();
+        unlockBodyScroll();
+    };
+}
+
+// Swipe-to-close for service overlay (mobile UX)
+(function() {
+    const overlay = document.getElementById('serviceOverlay');
+    if (!overlay) return;
+    let startY = 0;
+    overlay.addEventListener('touchstart', (e) => { startY = e.touches[0].clientY; }, { passive: true });
+    overlay.addEventListener('touchend', (e) => {
+        const dy = e.changedTouches[0].clientY - startY;
+        if (dy > 80) { // swipe down 80px+ closes panel
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }, { passive: true });
+})();
+
+// Swipe-to-close for career modal (mobile UX)
+(function() {
+    const panel = document.getElementById('careerModalPanel');
+    if (!panel) return;
+    let startY = 0;
+    panel.addEventListener('touchstart', (e) => { startY = e.touches[0].clientY; }, { passive: true });
+    panel.addEventListener('touchend', (e) => {
+        const dy = e.changedTouches[0].clientY - startY;
+        if (dy > 80) {
+            if (typeof closeCareerModal === 'function') closeCareerModal();
+            unlockBodyScroll();
+        }
+    }, { passive: true });
+})();
