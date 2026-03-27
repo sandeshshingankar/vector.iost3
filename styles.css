@@ -3490,6 +3490,18 @@ section { padding: 7rem 0; }
     color: #a5b4fc;
     border: 1px solid rgba(99,102,241,0.2);
 }
+.sic-price {
+    margin-top: 0.9rem;
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #34d399;
+    background: rgba(52,211,153,0.1);
+    border: 1px solid rgba(52,211,153,0.25);
+    border-radius: 20px;
+    padding: 3px 12px;
+    letter-spacing: 0.02em;
+}
 
 /* Coming soon placeholder */
 .service-coming-soon {
