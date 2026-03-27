@@ -603,13 +603,10 @@ const SERVICE_DATA = {
 
             { icon: '🤖', title: 'AI Automation', desc: 'Automate repetitive tasks with intelligent workflows and AI pipelines.', tags: ['GPT', 'No-code', 'Zapier-like'], price: '₹9,999/project' },
 
+            { icon: '💬', title: 'WhatsApp Automation', desc: 'Automate messages, replies, and customer interactions on WhatsApp with smart workflows..', tags: ['Auto Reply', 'Broadcast'], price: '₹1,999/month' },
+
             { icon: '📧', title: 'Email Campaigns', desc: 'Design, send, and track beautiful email campaigns that convert.', tags: ['Bulk Email', 'Analytics'], price: '₹2,999/month' },
 
-            { icon: '🔒', title: 'Security Audits', desc: 'Comprehensive vulnerability scans and security hardening for your web apps.', tags: ['VAPT', 'Compliance'], price: '₹7,999/audit' },
-
-            { icon: '📊', title: 'Analytics Dashboard', desc: 'Real-time insights into your users, traffic, and conversion funnels.', tags: ['Real-time', 'Charts'], price: '₹5,999/project' },
-
-            { icon: '☁️', title: 'Cloud Storage', desc: 'Secure, scalable cloud file storage with easy API integration.', tags: ['S3-compatible', 'Encrypted'], price: '₹1,999/month' },
             ]
     },
     'offline-services': {
@@ -618,9 +615,9 @@ const SERVICE_DATA = {
         desc: 'Hands-on professional services delivered on-site.',
         type: 'items',
         items: [
-            { icon: '🖨️', title: 'Print & Branding', desc: 'Business cards, banners, brochures, and full brand identity kits printed locally.', tags: ['Branding', 'Print'], price: '₹3,999/project' },
+            { icon: '🖨️', title: 'Print & Branding', desc: 'Business cards, banners, brochures, and full brand identity kits printed locally.', tags: ['Branding', 'Print'], price: '₹2,999/project(depends on requirements)' },
             { icon: '🏢', title: 'On-Site IT Setup', desc: 'Network setup, workstation configuration, and IT infrastructure installation.', tags: ['Networking', 'Hardware'], price: '₹5,999/setup' },
-            { icon: '🎤', title: 'Event Tech Support', desc: 'AV setup, live streaming, and technical support for events and conferences.', tags: ['Events', 'AV', 'Live'], price: '₹8,999/event' },
+            { icon: '🧹', title: 'Housekeeping services shops.', desc: 'AV setup, live streaming, and technical support for events and conferences.', tags: ['Events', 'AV', 'Live'], price: '₹8,999/event' },
             { icon: '📸', title: 'Photography & Video', desc: 'Professional shoots for products, teams, and events with same-day delivery.', tags: ['Media', 'Production'], price: '₹6,999/shoot' },
             { icon: '🧑‍🏫', title: 'Training Workshops', desc: 'In-person workshops on digital tools, coding, and entrepreneurship.', tags: ['Education', 'Workshop'], price: '₹4,999/session' },
             { icon: '🚚', title: 'Product Delivery', desc: 'Swift on-time delivery of physical products and merchandise.', tags: ['Logistics', 'On-time'], price: '₹499/delivery' },
